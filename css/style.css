@@ -1,0 +1,307 @@
+body {
+    margin: 0;
+    font-family: "Otomanopee One", sans-serif;
+    box-sizing: border-box;
+    background-color: rgb(61, 59, 59);
+}
+.dark-theme {
+    background-color: black;
+}
+
+/* ...... HEADER ...... */
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    color: grey;
+    width: 100%;
+    }
+    
+    .dark-header{
+        background-color:  #191e2b;
+        color: rgb(255, 255, 255);  
+    }
+    
+    nav button {
+        padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    color: gray;
+    background-color: transparent;
+    }
+    .dark-header nav button {
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    color: white;
+    background-color: transparent;
+    }
+    
+    nav button:hover {
+    background-color: rgb(85, 81, 81);
+    }
+    
+    nav i {
+        padding-right: 5px;
+    }
+    
+/* ...... MAIN ...... */
+    
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:  #eeeeee;
+}
+.dark-main {
+    background-color: #30343f;
+}
+    
+    
+    .container-global {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+        max-width: 610px;
+        height: 610px;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .container-text-top, .container-text-bottom {
+        text-align: center;
+        justify-content: center;
+        background-color:rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        width: 100%;  
+    }
+    
+    p {
+        position: static;
+        padding: 12px 50px;
+        font-size: 29px;
+    }
+    
+    .container-image {
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 520px;
+    }
+    #image-meme {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .button-download {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 15px 15px;
+        height: auto;
+        background-color: #2e7d32;
+        color:rgb(255, 255, 255);
+    }
+    main button:hover {
+        background-color: #1b5e20;
+        }
+    
+/* ...... ASIDE EDIT TEXT ...... */
+    
+    
+    .form-edit-text {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        width: 260px;
+        height: 100%;
+        margin: 10px;
+        text-align: left;
+        position: fixed;
+        z-index: 1;
+        overflow-x: scroll;
+        top: 0;
+        right: 0;
+        padding-top: 60px;
+       
+    }
+    
+    .form-edit-text h2 {
+        text-align: center;
+    }
+    
+    .edit-text-top {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    #text-top{
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #text-top:hover {
+        background-color: #4e5565;
+    }
+    
+    .edit-buttom-text {
+        display: flex;
+        flex-direction: column;
+    }
+    #bottom-text {
+            border-radius: 5px;
+            background-color:#393e49;
+            color: rgb(255, 255, 255);
+    }
+    #bottom-text:hover {
+            background-color: #4e5565;
+    }
+    
+    
+    
+    #font-types{
+        display: flex;
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #font-types:hover {
+        background-color: #4e5565;
+    }
+    .letter-size {
+        display: flex;
+        margin: 10px;  
+    }
+    #letter-size{
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #letter-size:hover {
+        background-color: #4e5565;
+    }
+    #left-button{
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #left-button:hover {
+        background-color: #4e5565;
+    }
+    #center-button{
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #center-button:hover {
+        background-color: #4e5565;
+    }
+    #right-button{
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #right-button:hover {
+        background-color: #4e5565;
+    }
+    
+    
+    .color {
+        display: flex;
+        flex-direction: column;
+    }
+    .container-input-color-background-text {
+        display: flex;
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    .container-input-color-background-text:hover {
+        background-color:#4e5565;
+    }
+    
+    .background {
+        display: flex;
+        flex-direction: column;
+    }
+    #title-background {
+        margin-left: 20px;
+    }
+    .container-input-color-backgrounds-text {
+        display: flex;
+        margin-left: 20px;
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    .container-input-color-backgrounds-text:hover {
+        background-color:#4e5565;
+    }
+    
+    #title-outline {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #none{
+        display: flex;
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+        }
+    #none:hover {
+            background-color:#4e5565;
+    }
+    #clear{
+        display: flex;
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #clear:hover{
+        background-color:#4e5565;
+    }
+    #dark{
+        display: flex;
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+        }
+    #dark:hover {
+        background-color:#4e5565;
+    }
+    #spacing {
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #spacing:hover {
+        background-color: #4e5565;
+    }
+    #leading {
+        border-radius: 5px;
+        background-color:#393e49;
+        color: rgb(255, 255, 255);
+    }
+    #leading:hover {
+        background-color: #4e5565;
+    }
+    
+    
+    
+    
+/* OCULTAR PANEL EDIT TEXT */
+.hidden {
+    display: none;
+}
+
+
+/* MEDIA QUERY */

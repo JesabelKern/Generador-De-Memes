@@ -46,7 +46,7 @@
             <h3>FONDO</h3>
             <div>
                 <div class="container-color-fondo">
-                    <input type="color" id="color-background-image" value="#FFFFFF" aria-label="Selecciona color de fondo">
+                    <input type="color" class="color-rounded" id="color-background-image" value="#FFFFFF" aria-label="Selecciona color de fondo">
                     <span class="text-color">#FFFFFF</span>
                 </div>
                 <select class="options-background-image">
@@ -151,10 +151,12 @@
             </label>
             <div class="types-outline">
                 <h3 id="title-outline">CONTORNO</h3> 
+            </div>
+            <div class="button-container">
                 <button id="none">Ninguno</button>
                 <button id="clear">Claro</button>
                 <button id="dark">Oscuro</button>
-              </div>
+            </div>
               <label for="spacing">
                 <h3 id="title-spacing">ESPACIADO</h3>
                 <input type="number" id="spacing" min="0" max="50" value="0">
@@ -174,6 +176,6 @@
     </aside>     
 
 
-    <script src="main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

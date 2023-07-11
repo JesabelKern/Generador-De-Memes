@@ -28,8 +28,7 @@
             <div class="container-text-top">
                 <p>TOP TEXT</p>
             </div>
-            <div class="container-image">
-                <img src="" class="meme-image" id="image-meme">
+            <div class="meme-image" id="image-meme"></div>
             </div>
             <div class="container-text-bottom">
                 <p>BOTTOM TEXT</p>
@@ -41,7 +40,7 @@
         <form class="form-edit-image">
             <h2>IMAGEN</h2>
             <label for="url" id="label-url">URL
-                <input type="text" id="url" name="url" aria-label="Url de imágen">
+                <input type="text" id="url-input" name="url" aria-label="Url de imágen">
             </label>
             <h3>FONDO</h3>
             <div>
@@ -60,31 +59,31 @@
             </div>
             <h3>FILTROS</h3>
             <label for="range-bright" id="label-bright">BRILLO
-                <input type="range" id="range-bright" min="0" max="1" step="0.1" value="1" name="brillo">
+                <input type="range" id="range-bright" min="0" max="1" step="0.1" value="1">
             </label>
             <label for="range-opacity" id="label-opacity">OPACIDAD
-                <input type="range" id="range-opacity" min="0" max="1" step="0.1" value="1" name="opacity">
+                <input type="range" id="range-opacity" min="0" max="1" step="0.1" value="1">
             </label>
             <label for="range-contrast" id="label-contrast">CONTRASTE
-                <input type="range" id="range-contrast" min="100" max="1000" step="1" value="100" name="contrast">
+                <input type="range" id="range-contrast" min="100" max="1000" step="1" value="100">
             </label>
             <label for="range-blur" id="label-blur">DESENFOQUE
-                <input type="range" id="range-blur" min="0" max="10" step="0.1" value="0" name="blur">
+                <input type="range" id="range-blur" min="0" max="10" step="0.1" value="0">
             </label>
             <label for="range-grayscale" id="label-grayscale">ESCALA DE GRISES
-                <input type="range" id="range-grayscale" min="0" max="100" step="1" value="0" name="grayscale">
+                <input type="range" id="range-grayscale" min="0" max="100" step="1" value="0">
             </label>
             <label for="range-sepia" id="label-sepia">SEPIA
-                <input type="range" id="range-sepia" min="0" max="100" step="1" value="0" name="sepia">
+                <input type="range" id="range-sepia" min="0" max="100" step="1" value="0">
             </label>
             <label for="range-hue" id="label-hue">HUE
-                <input type="range" id="range-hue" min="0" max="359" step="1" value="0" name="hue">
+                <input type="range" id="range-hue" min="0" max="360" step="1" value="0">
             </label>
             <label for="range-saturation" id="label-saturation">SATURADO
-                <input type="range" id="range-saturation" min="100" max="1000" step="10" value="100" name="saturation">
+                <input type="range" id="range-saturation" min="100" max="1000" step="10" value="100">
             </label>
             <label for="range-invert" id="label-invert">NEGATIVO
-                <input type="range" id="range-invert" min="0" max="1" step="0.1" value="1" name="invert">
+                <input type="range" id="range-invert" min="0" max="1" step="0.1" value="0">
             </label>
             <button class="button-default" aria-level="reestablecer filtros">Reestablecer filtros</button>
         </form>

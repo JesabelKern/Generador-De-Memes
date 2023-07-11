@@ -65,6 +65,64 @@ const changeBackground = () => {
 
 }
 
+
+             /* BOTON COLOR Y TEXTO  FONDO */ 
+/*etiqueta img*/
+let memeImage = document.querySelector(".meme-image");
+/*en esta variable me voy a guardar el fondo que seleccione el usuario*/
+let selectToBackground = "";
+/*div que contiene la imagen*/
+let containerImage = document.querySelector(".container-image");
+/*input de color*/
+let inputColor = document.getElementById("color-background-image");
+/*span con nombre de color*/
+let textoColorFondo = document.querySelector(".text-color");
+const elementSelector = document.querySelector(".options-background-image")
+
+
+let aplicarFiltro = () => {
+  memeImage.style.mixBlendMode = selectToBackground;
+  memeImage.style.backgroundColor = inputColor.value;
+};
+
+const colorPicker = (event) => {
+  textoColorFondo.textContent = event.target.value;
+  aplicarFiltro();
+};
+
+inputColor.addEventListener("input", colorPicker);
+
+
+            /* COLOR PICKER FONDO MEME */
+const cambiarFondoMeme = () => {
+  let colorElegido = inputColor.value;
+  textoColorFondo.innerHTML = `${colorElegido}`;
+};
+                                
+inputColor.addEventListener("input", () => cambiarFondoMeme());
+
+            /* SELECTOR FILTROS DE FONDO */ 
+const selectionUsuario = (event) => {
+  if (event.target.value === "aclarar") {
+    selectToBackground = "lighten";
+  } else if (event.target.value === "oscurecer") {
+    selectToBackground = "darken";
+  } else if (event.target.value === "diferencia") {
+    selectToBackground = "difference";
+  } else if (event.target.value === "luminosidad") {
+    selectToBackground = "luminosity";
+  } else if (event.target.value === "multiplicar") {
+    selectToBackground = "multiply";
+  } else {
+   selectToBackground  = "normal";
+  }
+  aplicarFiltro();
+};
+           
+elementSelector.addEventListener("change", selectionUsuario);
+
+
+
                     /*INPUT DE FILTROS*/
 const brightInput = document.getElementById('range-bright');
 const opacityInput = document.getElementById('range-opacity')
@@ -91,3 +149,237 @@ sepiaInput.addEventListener('input', ()=> filtros());
 hueInput.addEventListener('input', ()=> filtros());
 saturateInput.addEventListener('input', ()=> filtros());
 invertInput.addEventListener('input', ()=> filtros());
+
+                //BOTON REESTABLECER FILTROS
+
+const botonFilters = document.querySelector(".button-default");
+
+botonFilters.onclick = (event) => {
+  event.preventDefault();
+
+  brightInput.value = 1;
+  opacityInput.value = 1;
+  contrastInput.value = 100;
+  blurInput.value = 0;
+  grayscaleInput.value = 0;
+  sepiaInput.value = 0;
+  hueInput.value = 0;
+  saturateInput.value = 100;
+  invertInput.value = 0;
+
+  memeImg.style.filter = "none";
+};
+
+
+                    // DOWNLOAD MEME
+
+const downloadButton = document.getElementById("download-meme");
+const meme = document.getElementById("container-global-meme");
+
+const downloadMeme = () => {
+  domtoimage.toBlob(meme).then(function (blob) {
+    window.saveAs(blob, "MiPrimerMeme.png");
+  });
+};
+
+downloadButton.addEventListener("click", () => downloadMeme());
+
+
+/* ....FUNCIONES PARA APLICAR AL FORMULARIO TEXTO.... */ 
+
+/*ingresar texto superior e inferior (aca tengo que hacer 2 funciones que usen on input y tome el valor de lo que escribio el usuario y me lo muestre)*/
+const topTextUser = document.getElementById("text-top");
+const bottomTextUser = document.getElementById("bottom-text");
+const topText = document.querySelector(".container-text-top"); 
+const bottomText = document.querySelector(".container-text-bottom");  
+
+topTextUser.oninput = () => {
+  topText.textContent = topTextUser.value;
+};
+bottomTextUser.oninput = () => {
+  bottomText.textContent = bottomTextUser.value;
+};
+
+//ELIMINAR TEXTO SUPERIOR Y/O INFERIOR
+const noTopText = document.getElementById("no-top-text");
+const noBottomText = document.getElementById("no-bottom-text");
+
+noTopText.oninput = () => {
+  if (noTopText.checked) {
+    topText.style.display = "none";
+  } else {
+    topText.style.display = "flex";
+  }
+};
+noBottomText.oninput = () => {
+  if (noBottomText.checked) {
+    bottomText.style.display = "none";
+  } else {
+    bottomText.style.display = "flex";
+  }
+};
+
+//CAMBIO DE FUENTES
+
+const selectFonts = document.getElementById("font-types");
+
+const changeFonts = (event) => {
+  if (event.target.value === "Arial") {
+    topText.style.fontFamily = "Arial";
+    bottomText.style.fontFamily = "Arial";
+  } else if (event.target.value === "Arial Black") {
+    topText.style.fontFamily = "Arial Black";
+    bottomText.style.fontFamily = "Arial Black";
+  } else if (event.target.value === "American Typewriter") {
+    topText.style.fontFamily = "American Typewriter";
+    bottomText.style.fontFamily = "'American Typewriter";
+  } else if (event.target.value === "Andale Mono") {
+    topText.style.fontFamily = "Andale Mono";
+    bottomText.style.fontFamily = "Andale Mono";
+  } else if (event.target.value === "Comic Sans MS") {
+    topText.style.fontFamily = "'Comic Sans MS";
+    bottomText.style.fontFamily = "Comic Sans MS";
+  } else if (event.target.value === "Helvetica") {
+    topText.style.fontFamily = "Helvetica";
+    bottomText.style.fontFamily = "Helvetica";
+  } else if (event.target.value === "Impact") {
+    topText.style.fontFamily = "Impact";
+    bottomText.style.fontFamily = "Impact";
+  } else if (event.target.value === "Verdana") {
+    topText.style.fontFamily = "Verdana";
+    bottomText.style.fontFamily = "Verdana";
+  } else if (event.target.value === "Times New Roman") {
+    topText.style.fontFamily = "'Times New Roman', Times, serif;";
+    bottomText.style.fontFamily = "Times New Roman";
+  }
+};
+selectFonts.addEventListener("change", changeFonts);
+
+// TAMAÑO DE LA LETRA
+const letterSize = document.getElementById("letter-size");
+
+letterSize.oninput = () => {
+  topText.style.fontSize = letterSize.value + "px";
+  bottomText.style.fontSize = letterSize.value + "px";
+};
+
+// ALINEACIÓN DEL PARRAFO
+
+const leftAlignment = document.getElementById("left-button");
+const centerAlignment = document.getElementById("center-button");
+const rightAlignment = document.getElementById("right-button");
+
+leftAlignment.onclick = (event) => {
+  event.preventDefault();
+  topText.style.justifyContent = "flex-start";
+  bottomText.style.justifyContent = "flex-start";
+};
+centerAlignment.onclick = (event) => {
+  event.preventDefault();
+  topText.style.justifyContent = "center";
+  bottomText.style.justifyContent = "center";
+};
+rightAlignment.onclick = (event) => {
+  event.preventDefault();
+  topText.style.justifyContent = "flex-end";
+  bottomText.style.justifyContent = "flex-end";
+};
+
+// COLOR Y FONDO
+
+let inputColorBackground = document.getElementById("input-color-background");
+let inputColorText = document.getElementById("input-color-text");
+
+let spanColorText = document.querySelector(".span-color-text");
+let spanBackgroundText = document.querySelector(".span-background-text");
+
+// APLICAR CODIGO DE COLOR Y FONDO EN SPAN
+const nameCodeOfColor = (event) => {
+  spanColorText.textContent = event.target.value;
+};
+inputColorText.addEventListener("input", nameCodeOfColor);
+
+const nameCodeOfColorBackground = (event) => {
+  spanBackgroundText.textContent = event.target.value;
+};
+inputColorBackground.addEventListener("input", nameCodeOfColorBackground);
+
+// APLICAR EL COLOR DE LA LETRA
+const changeColorText = (event) => {
+  topText.style.color = inputColorText.value;
+  bottomText.style.color = inputColorText.value;
+};
+
+inputColorText.addEventListener("input", changeColorText);
+
+//APLICAR EL COLOR DE FONDO
+const changeColorBackgroundText = (event) => {
+  topText.style.backgroundColor = inputColorBackground.value;
+  bottomText.style.backgroundColor = inputColorBackground.value;
+};
+
+inputColorBackground.addEventListener("input", changeColorBackgroundText);
+
+//FONDO TRANSPARENTE
+let checkboxTransparent = document.getElementById("transparent-background");
+
+checkboxTransparent.oninput = () => {
+  if (checkboxTransparent.checked) {
+    topText.style.position = "relative";
+    bottomText.style.position = "relative";
+    topText.style.height = "0";
+    bottomText.style.height = "0";
+    topText.style.position = "absolute";
+    buttonText.style.position = "absolute";
+    topText.style.top = "0";
+    buttonText.style.bottom = "0";
+  } else {
+    topText.style.position = "static";
+    bottomText.style.position = "static";
+    topText.style.height = "";
+    bottomText.style.height = "";
+    topText.style.position = "static";
+    buttonText.style.position = "static";
+    topText.style.top = "";
+    buttonText.style.bottom = "";
+  }
+};
+
+// CONTORNOS
+
+let buttonNone = document.getElementById("none");
+let buttonClear = document.getElementById("clear");
+let buttonDark = document.getElementById("dark");
+
+buttonNone.onclick = (event) => {
+  event.preventDefault();
+  topText.style.textShadow = "none";
+  bottomText.style.textShadow = "none";
+};
+
+buttonClear.onclick = (event) => {
+  event.preventDefault();
+  topText.style.textShadow = "2px 2px 2px white";
+  bottomText.style.textShadow = "2px 2px 2px white";
+};
+
+buttonDark.onclick = (event) => {
+  event.preventDefault();
+  topText.style.textShadow = "2px 2px 2px black";
+  bottomText.style.textShadow = "2px 2px 2px black";
+};
+
+// ESPACIADO
+
+let spacingText = document.getElementById("spacing");
+spacingText.oninput = () => {
+  topText.style.padding = spacingText.value + "px";
+  bottomText.style.padding = spacingText.value + "px";
+};
+// INTERLINEADO
+
+let leadingText = document.getElementById("leading");
+leadingText.oninput = () => {
+  topText.style.lineHeight = leadingText.value;
+  bottomText.style.lineHeight = leadingText.value;
+};

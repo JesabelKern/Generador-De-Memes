@@ -26,30 +26,39 @@ const openAsideEditImage = () => {
 buttonImage.onclick = openAsideEditImage
 
 /* FUNCION PARA CAMBIAR MODO CLARO Y OSCURO */
-const body = document.querySelector(".dark-theme")
 const header = document.querySelector(".dark-header")
 const main = document.querySelector(".dark-main")
 const asideImage = document.querySelector(".edit-image")
 const asideText = document.querySelector(".edit-text")
 
+const changeButtonMode = () => {
+  const currentMode = buttonMode.textContent.trim();
 
-const changeTextButtonMode = () => {
-  if (buttonMode.innerHTML === 'Modo oscuro') {
-    buttonMode.innerHTML = "Modo claro";
-   } else {
-  buttonMode.innerHTML = "Modo oscuro";
-   }
+  if (currentMode === 'Modo oscuro') {
+    buttonMode.innerHTML = `<i class="far fa-lightbulb" aria-label="Activa el modo claro u oscuro"></i>Modo claro`;
+    header.classList.remove("light-header");
+    main.classList.remove("light-main");
+    asideImage.classList.remove("light-aside");
+    asideText.classList.remove("light-aside");
+    header.classList.add("dark-header");
+    main.classList.add("dark-main");
+    asideImage.classList.add("dark-aside");
+    asideText.classList.add("dark-aside");
+  } else {
+    buttonMode.innerHTML = `<i class="far fa-lightbulb" aria-label="Activa el modo claro u oscuro"></i>Modo oscuro`;
+    header.classList.remove("dark-header");
+    main.classList.remove("dark-main");
+    asideImage.classList.remove("dark-aside");
+    asideText.classList.remove("dark-aside");
+    header.classList.add("light-header");
+    main.classList.add("light-main");
+    asideImage.classList.add("light-aside");
+    asideText.classList.add("light-aside");
   }
+};
 
-const modeLightBulb = () => {
-  changeTextButtonMode()
-    body.classList.toggle("dark-theme")
-    header.classList.toggle("dark-header")
-    main.classList.toggle("dark-main")
-    asideImage.classList.toggle("dark-aside")
-    asideText.classList.toggle("dark-aside")
-}
-buttonMode.onclick = modeLightBulb
+buttonMode.addEventListener("click", changeButtonMode);
+
 
 /* ....FUNCIONES PARA APLICAR AL FORMULARIO IMAGEN.... */ 
 

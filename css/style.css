@@ -24,8 +24,9 @@ header {
     color: rgb(255, 255, 255);
 }
 .light-header {
-    background-color: aliceblue;
-    color: black;
+    /* background-color:  rgb(246, 142, 159); */
+    background-color: rgb(131, 82, 131);
+    color:white;
 }  
 
 nav button {
@@ -34,7 +35,7 @@ nav button {
     border-radius: 5px;
     border: none;
     font-size: 16px;
-    color: gray;
+    color: white;
     background-color: transparent;
 }
 .dark-header nav button {
@@ -64,64 +65,89 @@ main {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+
 }
 .dark-main { 
     background-color: rgb(61, 59, 59);
-    background-color: #1b5e20;
 }
 .light-main {
-    background-color: pink;
+    /* background-color: pink; */
+    background-color: rgb(142, 112, 142);
 }
-     
-.container-global {
+
+
+.container-meme {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     max-width: 610px;
     height: 610px;
     width: 100%;
-    padding: 10px;
-    margin: 0 auto;
-}
+    /* padding: 10px; */
+    /* margin: 0 auto;  */
     
-.container-text-top, .container-text-bottom {
+}
+
+    
+/* .container-text-top, .container-text-bottom {
     text-align: center;
     justify-content: center;
     background-color:rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     width: 100%;  
-}
+} */
     
-p {
+.container-text-top, .container-text-bottom {
+    display: flex;
+    justify-content: center;
+    background-color:rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    width: 100%;  
+
     position: static;
     padding: 12px 50px;
     font-size: 29px;
-    margin: 16px 0px;
+    margin: 0px;
 }
     
 
 
 .meme-image {
+    justify-content: center;
     max-height: 100%;
     height: 100%;
     width: 100%;
     background-color: rgb(0, 0, 0);
-    background-size: contain;
+    background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
+    padding: 10px 50px;
+}
+
+#container-global {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+   
+    
 }
 
 .container-btn-download {
     display: flex;
     justify-content: center;
+    width: 100%;
+   
 }
 
 .button-download {
     display: flex;
     justify-content: center;
-    max-width: 150px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    gap: 6px;
+    max-width: 160px;
+    margin: 30px 0px;
     padding: 15px 15px;
     height: auto;
     background-color: #2e7d32;
@@ -149,8 +175,9 @@ main button:hover {
     box-shadow: -10px 10px 100px 5px rgb(0, 0, 0, 0.3);
 }
 .light-aside {
-    background-color:rgb(255, 255, 255);
-    color: #252935;
+    /* background-color: rgb(229, 144, 158); */
+    background-color: rgb(157, 108, 157);
+    color:white;
 }
 
 .form-edit-image h2 {
@@ -205,18 +232,24 @@ div {
     border-radius: 50%;
     border: none;
 }
-/*//////////////////////////////////////////////////
-/* <input type="range" id="range-bright" */
 
-/* #range-bright {
-    background-color: purple; 
-    border-color: white; 
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    appearance: none;
+    background-color: rgb(89, 88, 88);
   }
-#range-bright::-webkit-slider-thumb {
-    background-color: lightcoral; 
-}  */
-
-/*//////////////////////////////////////////////////*/
+  
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    background-color: rgb(239, 66, 155);
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 
 
 input[type="color"] {
@@ -263,6 +296,7 @@ select:hover {
     display: flex;
     flex-direction: column;
     /* padding: 0px 10px 30px; */
+    padding: 0px;
     width: 260px;
     height: 100%;
     /* margin: 10px; */
@@ -433,8 +467,8 @@ select:hover {
     background-color:#4e5565;
 }
 #transparent-background {
-    margin-top: 5%;
-}    
+    margin-top: 5%; 
+}      
 #title-outline {
     display: flex;
     flex-direction: column;
@@ -503,8 +537,7 @@ select:hover {
 #leading:hover {
     background-color: #4e5565;
 }
-    
-    
+      
     
     
 /* OCULTAR PANEL EDIT TEXT */
@@ -514,3 +547,6 @@ select:hover {
 
 
 /* MEDIA QUERY */
+
+
+

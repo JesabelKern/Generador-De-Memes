@@ -1,40 +1,39 @@
-/*<script      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"      integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="      crossorigin="anonymous"      referrerpolicy="no-referrer"    ></script>      <script      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"      integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="      crossorigin="anonymous"      referrerpolicy="no-referrer"    ></script>
 /* BOTONES DEL NAV */
-const buttonImage = document.querySelector(".image")
+const buttonImage = document.querySelector(".image");
 
-const buttonText = document.querySelector(".text")
+const buttonText = document.querySelector(".text");
 
-const buttonMode = document.querySelector(".dark-mode")
+const buttonMode = document.querySelector(".dark-mode");
 
 /* SELECCIÓN DE LOS ASIDE DE IMAGEN Y TEXTO */
-const asideEditImage = document.querySelector(".edit-image")
+const asideEditImage = document.querySelector(".edit-image");
 
-const asideEditText = document.querySelector(".edit-text")
+const asideEditText = document.querySelector(".edit-text");
 
 /* FUNCION PARA QUE SE ABRAN LOS ASIDE */
 const openAsideEditText = () => {
-    asideEditImage.classList.add("hidden")
-    asideEditText.classList.remove("hidden")
-}
-buttonText.onclick = openAsideEditText 
+  asideEditImage.classList.add("hidden");
+  asideEditText.classList.remove("hidden");
+};
+buttonText.onclick = openAsideEditText;
 
 const openAsideEditImage = () => {
-    asideEditText.classList.add("hidden")
+  asideEditText.classList.add("hidden");
 
-    asideEditImage.classList.remove("hidden")
-}
-buttonImage.onclick = openAsideEditImage
+  asideEditImage.classList.remove("hidden");
+};
+buttonImage.onclick = openAsideEditImage;
 
 /* FUNCION PARA CAMBIAR MODO CLARO Y OSCURO */
-const header = document.querySelector(".dark-header")
-const main = document.querySelector(".dark-main")
-const asideImage = document.querySelector(".edit-image")
-const asideText = document.querySelector(".edit-text")
+const header = document.querySelector(".dark-header");
+const main = document.querySelector(".dark-main");
+const asideImage = document.querySelector(".edit-image");
+const asideText = document.querySelector(".edit-text");
 
 const changeButtonMode = () => {
   const currentMode = buttonMode.textContent.trim();
 
-  if (currentMode === 'Modo oscuro') {
+  if (currentMode === "Modo oscuro") {
     buttonMode.innerHTML = `<i class="far fa-lightbulb" aria-label="Activa el modo claro u oscuro"></i>Modo claro`;
     header.classList.remove("light-header");
     main.classList.remove("light-main");
@@ -59,39 +58,34 @@ const changeButtonMode = () => {
 
 buttonMode.addEventListener("click", changeButtonMode);
 
+/* ....FUNCIONES PARA APLICAR AL FORMULARIO IMAGEN.... */
 
-/* ....FUNCIONES PARA APLICAR AL FORMULARIO IMAGEN.... */ 
+/* RUTA DEL URL */
 
-                    /* RUTA DEL URL */
+const urlInput = document.getElementById("url-input");
+const memeImg = document.getElementById("image-meme");
 
-const urlInput = document.getElementById('url-input');
-const memeImg = document.getElementById('image-meme');
-
-urlInput.addEventListener('input', ()=> changeBackground())
+urlInput.addEventListener("input", () => changeBackground());
 
 const changeBackground = () => {
-    memeImg.style.backgroundImage = `url('${urlInput.value}')`
+  memeImg.style.backgroundImage = `url('${urlInput.value}')`;
+};
 
-}
-
-
-             /* BOTON COLOR Y TEXTO  FONDO */ 
+/* BOTON COLOR Y TEXTO  FONDO */
 /*etiqueta img*/
-let memeImage = document.querySelector(".meme-image");
+// let memeImage = document.getElementById("image-meme");
 /*en esta variable me voy a guardar el fondo que seleccione el usuario*/
 let selectToBackground = "";
-/*div que contiene la imagen*/
-let containerImage = document.querySelector(".container-image");
 /*input de color*/
 let inputColor = document.getElementById("color-background-image");
 /*span con nombre de color*/
 let textoColorFondo = document.querySelector(".text-color");
-const elementSelector = document.querySelector(".options-background-image")
-
+/*select que contiene las opciones */
+const elementSelector = document.querySelector(".options-background-image");
 
 let aplicarFiltro = () => {
-  memeImage.style.mixBlendMode = selectToBackground;
-  memeImage.style.backgroundColor = inputColor.value;
+  memeImg.style.mixBlendMode = selectToBackground;
+  memeImg.style.backgroundColor = inputColor.value;
 };
 
 const colorPicker = (event) => {
@@ -102,15 +96,23 @@ const colorPicker = (event) => {
 inputColor.addEventListener("input", colorPicker);
 
 
-            /* COLOR PICKER FONDO MEME */
-const cambiarFondoMeme = () => {
-  let colorElegido = inputColor.value;
-  textoColorFondo.innerHTML = `${colorElegido}`;
-};
-                                
-inputColor.addEventListener("input", () => cambiarFondoMeme());
 
-            /* SELECTOR FILTROS DE FONDO */ 
+
+//Necesito hacer 3 cosas:
+//1- tengo el input del color(circulo),      inputColor
+//2-tengo q cambiar el texto del span,       textoColorFondo
+//3- cambiarle el backgroun color al div,    memeImg
+
+/* COLOR PICKER FONDO MEME */
+// const cambiarFondoMeme = () => {
+//   let colorElegido = inputColor.value;
+//   textoColorFondo.innerHTML = `${colorElegido}`;
+// };
+
+// inputColor.addEventListener("input", () => cambiarFondoMeme());
+
+
+/* SELECTOR FILTROS DE FONDO */
 const selectionUsuario = (event) => {
   if (event.target.value === "aclarar") {
     selectToBackground = "lighten";
@@ -123,43 +125,39 @@ const selectionUsuario = (event) => {
   } else if (event.target.value === "multiplicar") {
     selectToBackground = "multiply";
   } else {
-   selectToBackground  = "normal";
+    selectToBackground = "normal";
   }
   aplicarFiltro();
 };
-           
+
 elementSelector.addEventListener("change", selectionUsuario);
 
-
-
-                    /*INPUT DE FILTROS*/
-const brightInput = document.getElementById('range-bright');
-const opacityInput = document.getElementById('range-opacity')
-const contrastInput = document.getElementById('range-contrast');
-const blurInput = document.getElementById('range-blur');
-const grayscaleInput = document.getElementById('range-grayscale');
-const sepiaInput = document.getElementById('range-sepia');
-const hueInput = document.getElementById('range-hue');
-const saturateInput = document.getElementById('range-saturation');
-const invertInput = document.getElementById('range-invert');
-
+/*INPUT DE FILTROS*/
+const brightInput = document.getElementById("range-bright");
+const opacityInput = document.getElementById("range-opacity");
+const contrastInput = document.getElementById("range-contrast");
+const blurInput = document.getElementById("range-blur");
+const grayscaleInput = document.getElementById("range-grayscale");
+const sepiaInput = document.getElementById("range-sepia");
+const hueInput = document.getElementById("range-hue");
+const saturateInput = document.getElementById("range-saturation");
+const invertInput = document.getElementById("range-invert");
 
 const filtros = () => {
-  memeImg.style.filter = `brightness(${brightInput.value}) opacity(${opacityInput.value}) contrast(${contrastInput.value}%) blur(${blurInput.value}px) grayscale(${grayscaleInput.value}) sepia(${sepiaInput.value})  hue-rotate(${hueInput.value}deg) saturate(${saturateInput.value}%) invert(${invertInput.value})`
-}
+  memeImg.style.filter = `brightness(${brightInput.value}) opacity(${opacityInput.value}) contrast(${contrastInput.value}%) blur(${blurInput.value}px) grayscale(${grayscaleInput.value}) sepia(${sepiaInput.value})  hue-rotate(${hueInput.value}deg) saturate(${saturateInput.value}%) invert(${invertInput.value})`;
+};
 
+brightInput.addEventListener("input", () => filtros());
+opacityInput.addEventListener("input", () => filtros());
+contrastInput.addEventListener("input", () => filtros());
+blurInput.addEventListener("input", () => filtros());
+grayscaleInput.addEventListener("input", () => filtros());
+sepiaInput.addEventListener("input", () => filtros());
+hueInput.addEventListener("input", () => filtros());
+saturateInput.addEventListener("input", () => filtros());
+invertInput.addEventListener("input", () => filtros());
 
-brightInput.addEventListener('input', ()=> filtros());
-opacityInput.addEventListener('input', ()=> filtros());
-contrastInput.addEventListener('input', ()=> filtros());
-blurInput.addEventListener('input', ()=> filtros()); 
-grayscaleInput.addEventListener('input', ()=> filtros());
-sepiaInput.addEventListener('input', ()=> filtros());
-hueInput.addEventListener('input', ()=> filtros());
-saturateInput.addEventListener('input', ()=> filtros());
-invertInput.addEventListener('input', ()=> filtros());
-
-                //BOTON REESTABLECER FILTROS
+//BOTON REESTABLECER FILTROS
 
 const botonFilters = document.querySelector(".button-default");
 
@@ -179,11 +177,10 @@ botonFilters.onclick = (event) => {
   memeImg.style.filter = "none";
 };
 
-
-                    // DOWNLOAD MEME
+// DOWNLOAD MEME
 
 const downloadButton = document.getElementById("download-meme");
-const meme = document.getElementById("container-global-meme");
+const meme = document.getElementById("meme-container");
 
 const downloadMeme = () => {
   domtoimage.toBlob(meme).then(function (blob) {
@@ -193,14 +190,13 @@ const downloadMeme = () => {
 
 downloadButton.addEventListener("click", () => downloadMeme());
 
-
-/* ....FUNCIONES PARA APLICAR AL FORMULARIO TEXTO.... */ 
+/* ....FUNCIONES PARA APLICAR AL FORMULARIO TEXTO.... */
 
 /*ingresar texto superior e inferior (aca tengo que hacer 2 funciones que usen on input y tome el valor de lo que escribio el usuario y me lo muestre)*/
 const topTextUser = document.getElementById("text-top");
 const bottomTextUser = document.getElementById("bottom-text");
-const topText = document.querySelector(".container-text-top"); 
-const bottomText = document.querySelector(".container-text-bottom");  
+const topText = document.querySelector(".container-text-top");
+const bottomText = document.querySelector(".container-text-bottom");
 
 topTextUser.oninput = () => {
   topText.textContent = topTextUser.value;
@@ -334,23 +330,17 @@ let checkboxTransparent = document.getElementById("transparent-background");
 
 checkboxTransparent.oninput = () => {
   if (checkboxTransparent.checked) {
-    topText.style.position = "relative";
-    bottomText.style.position = "relative";
-    topText.style.height = "0";
-    bottomText.style.height = "0";
     topText.style.position = "absolute";
-    buttonText.style.position = "absolute";
+    bottomText.style.position = "absolute";
     topText.style.top = "0";
-    buttonText.style.bottom = "0";
+    bottomText.style.bottom = "0";
+    topText.style.backgroundColor= "transparent";
+    bottomText.style.backgroundColor= "transparent";
   } else {
     topText.style.position = "static";
     bottomText.style.position = "static";
-    topText.style.height = "";
-    bottomText.style.height = "";
-    topText.style.position = "static";
-    buttonText.style.position = "static";
-    topText.style.top = "";
-    buttonText.style.bottom = "";
+    topText.style.backgroundColor = inputColorBackground.value;
+    bottomText.style.backgroundColor = inputColorBackground.value;
   }
 };
 
@@ -392,3 +382,19 @@ leadingText.oninput = () => {
   topText.style.lineHeight = leadingText.value;
   bottomText.style.lineHeight = leadingText.value;
 };
+
+
+
+
+
+//MEDIAqUERY//
+// const resizeWindow = () => {
+  // if(body.getBoundingClientRect().width > 1300) {
+    // apartadoImagen.classList.toggle("oculto")
+    // apartadoTexto.classList.toggle("oculto")
+  // } else {
+    // apartadoImagen.style.display = "none";
+    // apartadoTexto.style.display = "none";
+  // }
+// }
+// window.addEventListener("resize", resizeWindow)

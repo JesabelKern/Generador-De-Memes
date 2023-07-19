@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/0ca0e55b9a.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
-    integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
-    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
-    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Generador de Memes</title>
 </head>
 <body>
@@ -24,20 +20,19 @@
         </nav>
     </header>
     <main class="dark-main">
-        <section class="container-global" id="container-global-meme">
-            <div class="container-text-top">
-                <p>TOP TEXT</p>
-            </div>
-            <div class="meme-image" id="image-meme"></div>
-            </div>
-            <div class="container-text-bottom">
-                <p>BOTTOM TEXT</p>
+
+        <section  id="container-global">
+            <div class="container-meme" id="meme-container">
+                <p class="container-text-top">TOP TEXT</p>
+                <div class="meme-image" id="image-meme"></div>
+                <p class="container-text-bottom">BOTTOM TEXT</p>
             </div>
             <div class="container-btn-download">
-                <button class="button-download" id="download-meme"><i class="fas fa-download"></i>Descargar meme</button>
+                <button class="button-download" id="download-meme"><i class="fas fa-download"></i> Descargar meme</button>
             </div>
         </section> 
     
+        
         <aside class="edit-image" >
             <form class="form-edit-image">
                 <h2>IMAGEN</h2>
@@ -159,7 +154,7 @@
                 </div>
                   <label for="spacing">
                     <h3 id="title-spacing">ESPACIADO</h3>
-                    <input type="number" id="spacing" min="0" max="50" value="0">
+                    <input type="number" id="spacing" min="10" max="50" value="0">
                   </label>
                   <label for="leading">
                     <h3 id="title-leading">INTERLINEADO</h3>
